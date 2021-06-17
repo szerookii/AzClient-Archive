@@ -18,7 +18,7 @@ void HookManager::init() {
 	hooks.push_back(new ChatScreenControllerHook());
 	hooks.push_back(new GameModeHook());
 	hooks.push_back(new KeyboardHook());
-	//hooks.push_back(new RenderContextHook());
+	hooks.push_back(new RenderContextHook());
 
 	for (int i = 0; i < hooks.size(); i++) {
 		hooks.at(i)->install();

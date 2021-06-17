@@ -22,7 +22,7 @@ void Init(LPVOID lpParam) {
     hookMgr.init();
     moduleMgr.init();
 
-     MH_DisableHook(MH_ALL_HOOKS);
+    MH_DisableHook(MH_ALL_HOOKS);
 
     Sleep(200);
 

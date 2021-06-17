@@ -8,7 +8,7 @@
 class AutoSprint : public Module {
 public:
 	AutoSprint() : Module::Module("AutoSprint", "Movement", "Automatically sprint forward") {
-		this->isEnabled = true;
+		this->isEnabled = false;
 	};
 	void onLoop();
 };

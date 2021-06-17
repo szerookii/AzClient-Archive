@@ -8,7 +8,7 @@
 class AirJump : public Module {
 public:
 	AirJump() : Module::Module("AirJump", "Movement", "Allows you to jump in the air") {
-		this->isEnabled = true;
+		this->isEnabled = false;
 	};
 	void onLoop();
 };

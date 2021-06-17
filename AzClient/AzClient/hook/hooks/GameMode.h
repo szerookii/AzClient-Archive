@@ -31,7 +31,11 @@ void GmTick_callback(GameMode* GM) {
 }
 
 void GameModeHook::install() {
-	this->hookSig("GameMode::tick", "40 53 48 83 EC 20 48 8B D9 48 8B 89 ? ? ? ? 48 8B 01 FF 50 18", &GmTick_callback, reinterpret_cast<LPVOID*>(&_GmTick));
+	uintptr_t sigAddr = Utils::FindSig("48 8D 05 ? ? ? ? 48 8B D9 48 89 01 8B FA 48 8B 89 ? ? ? ? 48 85 C9 74 ? 48 8B 01 BA ? ? ? ? FF 10 48 8B 8B");
+	
+	if (!sigAddr) return;
+	int offset = *reinterpret_cast<int*>(sigAddr + 3);
+	uintptr_t** vtable = reinterpret_cast<uintptr_t**>(sigAddr + offset + 7);
 
-	//Utils::DebugLogOutput(Utils::ptrToStr((uintptr_t)gData.getClientInstance()->LocalPlayer()));
+	this->hookAddr("GameMode::tick", (void*)vtable[10], &GmTick_callback, reinterpret_cast<LPVOID*>(&_GmTick));
 }

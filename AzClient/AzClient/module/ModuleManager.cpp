@@ -4,6 +4,7 @@
 #include "modules/AutoSprint.h"
 #include "modules/Killaura.h"
 #include "modules/Step.h"
+#include "modules/TabGUI.h"
 
 ModuleManager moduleMgr;
 
@@ -12,6 +13,7 @@ void ModuleManager::init() {
 	modules.push_back(new AutoSprint());
 	modules.push_back(new Killaura());
 	modules.push_back(new Step());
+	modules.push_back(new TabGUI());
 
 	for (int i = 0; i < modules.size(); i++) {
 		bool exists = false;

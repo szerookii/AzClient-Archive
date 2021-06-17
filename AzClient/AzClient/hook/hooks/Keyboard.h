@@ -20,23 +20,27 @@ void KeyItem_callback(uint64_t key, bool isDown) {
 		return;
 	}
 
-	for (auto Module : moduleMgr.modules) {
+	for (auto module : moduleMgr.modules) {
 		if (isDown) {
-			if ((int)key == (int)Module->key) {
-				Module->isEnabled = !Module->isEnabled;
+			if ((int)key == (int)module->key) {
+				module->isEnabled = !module->isEnabled;
 
-				if (Module->isEnabled)
-					Module->onEnable();
+				if (module->isEnabled)
+					module->onEnable();
 				else
-					Module->onDisable();
+					module->onDisable();
 			}
 		}
 
-		if (Module->isEnabled)
-			Module->onKey(key, isDown);
-	}
+		if (module->isEnabled) {
+			bool cancel = false;
+			module->onKey(key, isDown, &cancel);
 
-	// ToDo : Menu
+			if (cancel) {
+				return;
+			}
+		}
+	}
 	
 	_AVKeyItem(key, isDown);
 }

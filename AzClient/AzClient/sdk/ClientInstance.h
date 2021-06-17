@@ -83,10 +83,50 @@ public:
 	}
 };
 
+struct FontEntry {
+public:
+	BitmapFont* font;
+
+private:
+	void* sharedFontPtr;
+};
+
+struct FontList {
+public:
+	FontEntry fontEntries[9];
+};
+
+struct FontRepository {
+private:
+	uintptr_t* font_repository_vtable;  // 0x0000
+	__int64 pad;                        // 0x0008
+	void* ptrToSelf;                    // 0x0010
+	void* ptrToSelfSharedPtr;           // 0x0018
+	__int64 pad2;                       // 0x0020
+public:
+	FontList* fontList;   //0x0028
+};
+
 class MinecraftGame {
 public:
-	class BitmapFont* MCFont() {
-		return *reinterpret_cast<class BitmapFont**>(reinterpret_cast<__int64>(this) + 0x100);
+	FontRepository* getFontRepository() {
+		return *reinterpret_cast<FontRepository**>(reinterpret_cast<__int64>(this) + 0x100);
+	}
+
+	BitmapFont* getWtfFont() {
+		return this->getFontRepository()->fontList->fontEntries[0].font;
+	};
+
+	BitmapFont* getCleanFont() {
+		return this->getFontRepository()->fontList->fontEntries[7].font;
+	};
+
+	BitmapFont* getStrongFont() {
+		return this->getFontRepository()->fontList->fontEntries[6].font;
+	}
+
+	BitmapFont* getMinecraftiaFont() {
+		return this->getFontRepository()->fontList->fontEntries[3].font;
 	}
 
 	bool canUseKeys() {

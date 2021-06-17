@@ -1,8 +1,6 @@
 #include "Killaura.h"
 
-void Killaura::onLoop() {
-	Sleep(100);
-
+void Killaura::onGmTick() {
 	LocalPlayer* player = gData.getClientInstance()->LocalPlayer();
 
 	if (player != nullptr) {
@@ -17,8 +15,8 @@ void Killaura::onLoop() {
 					Actor* currEnt = level->get(i);
 					float distance = currEnt->getPos()->distance(myPos);
 
-					if (currEnt != nullptr && currEnt != player && distance <= 3.2) {
-						player->setOnFire(20);
+					if (currEnt != nullptr && currEnt != player && distance <= 3.3f) {
+						gData.getGameMode()->attack(currEnt);
 						player->swing();
 					}
 				}

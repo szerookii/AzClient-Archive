@@ -23,6 +23,7 @@
 #include "../sdk/Color.h"
 
 #include "MathUtils.h"
+#include "RenderUtils.h"
 
 static const char* const KeyNames[] = { // thx to Horion
 	"Unknown",

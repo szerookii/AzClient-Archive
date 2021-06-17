@@ -8,7 +8,7 @@
 class Step : public Module {
 public:
 	Step() : Module::Module("Step", "Movement", "") {
-		this->isEnabled = true;
+		this->isEnabled = false;
 	};
 	void onLoop();
 };

@@ -173,6 +173,8 @@
     <ClCompile Include="AzClient\module\modules\AutoSprint.cpp" />
     <ClCompile Include="AzClient\module\modules\Killaura.cpp" />
     <ClCompile Include="AzClient\module\modules\Step.cpp" />
+    <ClCompile Include="AzClient\module\modules\TabGUI.cpp" />
+    <ClCompile Include="AzClient\utils\RenderUtils.cpp" />
     <ClCompile Include="AzClient\utils\Utils.cpp" />
     <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
@@ -191,6 +193,7 @@
     <ClInclude Include="AzClient\module\modules\AutoSprint.h" />
     <ClInclude Include="AzClient\module\modules\Killaura.h" />
     <ClInclude Include="AzClient\module\modules\Step.h" />
+    <ClInclude Include="AzClient\module\modules\TabGUI.h" />
     <ClInclude Include="AzClient\sdk\Actor.h" />
     <ClInclude Include="AzClient\sdk\ClientInstance.h" />
     <ClInclude Include="AzClient\sdk\Color.h" />
@@ -207,6 +210,7 @@
     <ClInclude Include="AzClient\sdk\RakNetInstance.h" />
     <ClInclude Include="AzClient\sdk\TextHolder.h" />
     <ClInclude Include="AzClient\utils\MathUtils.h" />
+    <ClInclude Include="AzClient\utils\RenderUtils.h" />
     <ClInclude Include="AzClient\utils\Utils.h" />
     <ClInclude Include="include\MinHook.h" />
   </ItemGroup>

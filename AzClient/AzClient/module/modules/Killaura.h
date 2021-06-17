@@ -9,7 +9,7 @@
 class Killaura : public Module {
 public:
 	Killaura() : Module::Module("Killaura", "Combat", "") {
-		this->isEnabled = true;
+		this->isEnabled = false;
 	};
-	void onLoop();
+	void onGmTick();
 };

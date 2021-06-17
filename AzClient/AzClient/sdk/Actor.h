@@ -5,24 +5,22 @@
 
 class Actor {
 public:
-	char pad_0008[280]; //0x0008
-	Vec2 bodyRot; //0x0120
-	char pad_0128[152]; //0x0128
-	bool onGround; //0x01C0
-	char pad_01C1[95]; //0x01C1
-	float stepHeight; //0x0220 | Default = 0.5625
-	char pad_0224[308]; //0x0224
-	class MultiPlayerLevel* level; //0x0358
-	char pad_0360[340]; //0x0360
-	Vec2 collision; //0x04B4
-	char pad_04BC[24]; //0x04BC
-	Vec3 velocity; //0x04D4
-	char pad_04E0[880]; //0x04E0C
+	char pad_0000[320]; //0x0000
+	Vec2 bodyRot; //0x0140
+	char pad_0148[152]; //0x0148
+	bool onGround; //0x01E0
+	char pad_01E1[95]; //0x01E1
+	float stepHeight; //0x0240
+	char pad_0244[652]; //0x0244
+	Vec3 position; //0x04D0
+	char pad_04DC[60]; //0x04DC
+	Vec3 velocity; //0x0518
+	char pad_0524[924]; //0x0524
 
 	virtual bool hasComponent(class HashedString* param_1);
-	virtual void UndefinedFunc_1(void* param_1, void* param_2);
+	virtual void reloadHardcoded(class InitializationMethod* param_1, class VariantParameterList* param_2);
 	virtual void reloadHardcodedClient(class InitializationMethod* param_1, class VariantParameterList* param_2);
-	virtual void UndefinedFunc_3(void* param_1, void* param_2);
+	virtual void initializeComponents(class InitializationMethod* param_1, class VariantParameterList* param_2);
 	virtual void reloadComponents(class InitializationMethod* param_1, class VariantParameterList* param_2);
 	virtual void _serverInitItemStackIds();
 	virtual void _doInitialMove();
@@ -32,7 +30,7 @@ public:
 	virtual class ActorType* getOwnerEntityType();
 	virtual void remove();
 	virtual void setPos(struct Vec3* param_1);
-	virtual __int64 __vcrt_uninitialize1();
+	virtual __int64 __vcrt_uninitialize0();
 	virtual class PredictedMovementValues* getPredictedMovementValues();
 	virtual struct Vec3* getPos();
 	virtual struct Vec3* getPosOld();
@@ -48,18 +46,19 @@ public:
 	virtual float getInterpolatedBodyYaw(float param_1);
 	virtual float getYawSpeedInDegreesPerSecond();
 	virtual float getInterpolatedWalkAnimSpeed(float param_1);
-	virtual struct Vec3* getInterpolatedRidingOffset(float param_1);
-	virtual void checkBlockCollisions();
-	virtual void checkBlockCollisions(class AABB* param_1, __int64* param_2);
+	virtual struct Vec3* getWorldPosition();
+	virtual void checkBlockCollisions(class AABB* param_1, class std::function<void __cdecl(class BlockSource const&, class Block const&, class BlockPos const&, class Actor&)>* param_2);
+	virtual void updateEntityInside();
+	virtual void updateEntityInside(class AABB* param_1);
 	virtual bool isFireImmune();
-	virtual bool getReturnPolicy1();
+	virtual __int64 getReturnPolicy0();
 	virtual void blockedByShield(class ActorDamageSource* param_1, class Actor* param_2);
 	virtual void teleportTo(struct Vec3* param_1, bool param_2, int param_3, int param_4);
 	virtual bool tryTeleportTo(struct Vec3* param_1, bool param_2, bool param_3, int param_4, int param_5);
 	virtual void chorusFruitTeleport(struct Vec3* param_1);
 	virtual void lerpTo(struct Vec3* param_1, struct Vec2* param_2, int param_3);
 	virtual void lerpMotion(struct Vec3* param_1);
-	virtual __int64* tryCreateAddActorPacket();
+	virtual class AddActorBasePacket* tryCreateAddActorPacket();
 	virtual void normalTick();
 	virtual void baseTick();
 	virtual void rideTick();
@@ -75,67 +74,67 @@ public:
 	virtual bool isInWall();
 	virtual bool isInvisible();
 	virtual bool canShowNameTag();
-	virtual __int64 __vcrt_uninitialize2();
+	virtual __int64 __vcrt_uninitialize1();
 	virtual void setNameTagVisible(bool param_1);
-	virtual std::string getNameTag();
-	virtual __int64 getNameTagAsHash();
-	virtual std::string getFormattedNameTag();
+	virtual std::string* getNameTag();
+	virtual __int64 JS_GetContextOpaque();
+	virtual std::string* getFormattedNameTag();
 	virtual void filterFormattedNameTag(class UIProfanityContext* param_1);
-	virtual void setNameTag(std::string param_1);
-	virtual bool getReturnPolicy22();
-	virtual void setScoreTag(std::string param_1);
-	virtual std::string getScoreTag();
+	virtual void setNameTag(std::string* param_1);
+	virtual __int64 getReturnPolicy1();
+	virtual void setScoreTag(std::string* param_1);
+	virtual std::string* getScoreTag();
 	virtual bool isInWater();
 	virtual bool hasEnteredWater();
 	virtual bool isImmersedInWater();
-	virtual bool isInWaterOrRain();
 	virtual bool isInLava();
 	virtual bool isUnderLiquid(class MaterialType* param_1);
 	virtual bool isOverWater();
 	virtual void setBlockMovementSlowdownMultiplier(struct Vec3* param_1);
 	virtual void resetBlockMovementSlowdownMultiplier();
-	virtual float stbir__support_zero1(class BlockPos* param_1);
+	virtual __int64 stbir__support_zero0();
 	virtual float getShadowHeightOffs();
 	virtual float getShadowRadius();
 	virtual struct Vec3* getHeadLookVector(float param_1);
-	virtual bool getReturnPolicy2();
+	virtual __int64 getReturnPolicy2();
 	virtual bool canSee(struct Vec3* param_1);
 	virtual bool canSee(class Actor* param_1);
 	virtual bool isSkyLit(float param_1);
 	virtual float getBrightness(float param_1);
-	virtual bool getReturnPolicy3();
-	virtual void _guard_check_icall1();
+	virtual __int64 getReturnPolicy3();
+	virtual __int64 _guard_check_icall0();
 	virtual void onAboveBubbleColumn(bool param_1);
 	virtual void onInsideBubbleColumn(bool param_1);
 	virtual bool isImmobile();
 	virtual bool isSilent();
 	virtual bool isPickable();
-	virtual __int64 __vcrt_uninitialize3();
+	virtual __int64 __vcrt_uninitialize2();
 	virtual bool isSleeping();
-	virtual __int64 __vcrt_uninitialize4();
+	virtual __int64 __vcrt_uninitialize3();
 	virtual void setSneaking(bool param_1);
 	virtual bool isBlocking();
-	virtual bool getReturnPolicy4();
+	virtual __int64 getReturnPolicy4();
 	virtual bool isAlive();
 	virtual bool isOnFire();
 	virtual bool isOnHotBlock();
-	virtual bool getReturnPolicy5();
+	virtual __int64 getReturnPolicy5();
 	virtual bool isSurfaceMob();
-	virtual __int64 __vcrt_uninitialize5();
-	virtual bool getReturnPolicy6();
-	virtual bool getReturnPolicy7();
+	virtual __int64 __vcrt_uninitialize4();
+	virtual __int64 getReturnPolicy6();
+	virtual __int64 getReturnPolicy7();
+	virtual bool isAffectedByWaterBottle();
 	virtual bool canAttack(class Actor* param_1, bool param_2);
 	virtual void setTarget(class Actor* param_1);
-	virtual int UndefinedFunc_107();
-	virtual __int64 __vcrt_uninitialize6();
+	virtual int UndefinedFunc_108();
+	virtual __int64 __vcrt_uninitialize5();
 	virtual bool attack(class Actor* param_1);
 	virtual void performRangedAttack(class Actor* param_1, float param_2);
-	virtual void _guard_check_icall2();
+	virtual __int64 _guard_check_icall1();
 	virtual int getEquipmentCount();
 	virtual void setOwner(class ActorUniqueID* param_1);
 	virtual void setSitting(bool param_1);
-	virtual void _guard_check_icall3();
-	virtual void _guard_check_icall4();
+	virtual __int64 _guard_check_icall2();
+	virtual __int64 _guard_check_icall3();
 	virtual int getInventorySize();
 	virtual int getEquipSlots();
 	virtual int getChestSlots();
@@ -144,8 +143,8 @@ public:
 	virtual void setCanPowerJump(bool param_1);
 	virtual bool isJumping();
 	virtual bool isEnchanted();
-	virtual void _guard_check_icall5();
-	virtual void _guard_check_icall6();
+	virtual __int64 _guard_check_icall4();
+	virtual __int64 _guard_check_icall5();
 	virtual bool shouldRender();
 	virtual bool isInvulnerableTo(class ActorDamageSource* param_1);
 	virtual class ActorDamageCause* getBlockDamageCause(class Block* param_1);
@@ -153,7 +152,7 @@ public:
 	virtual void animateHurt();
 	virtual bool doFireHurt(int param_1);
 	virtual void onLightningHit();
-	virtual void _guard_check_icall7();
+	virtual __int64 _guard_check_icall6();
 	virtual void feed(int param_1);
 	virtual void handleEntityEvent(class ActorEvent* param_1, int param_2);
 	virtual float getPickRadius();
@@ -165,7 +164,7 @@ public:
 	virtual class ItemActor* spawnAtLocation(int param_1, int param_2);
 	virtual void despawn();
 	virtual void killed(class Actor* param_1);
-	virtual void _guard_check_icall8();
+	virtual __int64 _guard_check_icall7();
 	virtual void setArmor(class ArmorSlot* param_1, class ItemStack* param_2);
 	virtual class ItemStack* getArmor(class ArmorSlot* param_1);
 	virtual class ArmorMaterialType* getArmorMaterialTypeInSlot(class ArmorSlot* param_1);
@@ -181,22 +180,24 @@ public:
 	virtual bool save(class CompoundTag* param_1);
 	virtual void saveWithoutId(class CompoundTag* param_1);
 	virtual bool load(class CompoundTag* param_1, class DataLoadHelper* param_2);
-	virtual void loadLinks(class CompoundTag* param_1, __int64* param_2, class DataLoadHelper* param_3);
+	virtual void loadLinks(class CompoundTag* param_1, class std::vector<class ActorLink*> param_2, class DataLoadHelper* param_3);
 	virtual class ActorType* getEntityTypeId();
 	virtual class HashedString* queryEntityRenderer();
-	virtual class ActorUniqueID* getDamagingEntityUniqueID1();
+	virtual class ActorUniqueID* getDamagingEntityUniqueID0();
 	virtual void setOnFire(int param_1);
 	virtual void extinguishFire();
 	virtual void thawFreezeEffect();
+	virtual bool canFreeze();
+	virtual bool isWearingLeatherArmor();
 	virtual class AABB* getHandleWaterAABB();
 	virtual void handleInsidePortal(class BlockPos* param_1);
 	virtual int getPortalCooldown();
-	virtual int UndefinedFunc_172();
+	virtual int UndefinedFunc_175();
 	virtual __int64* getDimensionId();
-	virtual __int64 __vcrt_uninitialize7();
-	virtual void _guard_check_icall9();
+	virtual __int64 __vcrt_uninitialize6();
+	virtual __int64 _guard_check_icall8();
 	virtual void changeDimension(__int64* param_1, bool param_2);
-	virtual class ActorUniqueID* getDamagingEntityUniqueID2();
+	virtual class ActorUniqueID* getDamagingEntityUniqueID1();
 	virtual void checkFallDamage(float param_1, bool param_2);
 	virtual void causeFallDamage(float param_1, float param_2, class ActorDamageSource* param_3);
 	virtual void handleFallDistanceOnServer(float param_1, float param_2, bool param_3);
@@ -204,13 +205,13 @@ public:
 	virtual void playSynchronizedSound(class LevelSoundEvent* param_1, struct Vec3* param_2, class Block* param_3, bool param_4);
 	virtual void onSynchedDataUpdate(int param_1);
 	virtual bool canAddRider(class Actor* param_1);
+	virtual __int64 __vcrt_uninitialize7();
 	virtual __int64 __vcrt_uninitialize8();
-	virtual __int64 __vcrt_uninitialize9();
 	virtual bool inCaravan();
-	virtual bool getReturnPolicy8();
+	virtual __int64 getReturnPolicy8();
 	virtual void tickLeash();
 	virtual void sendMotionPacketIfNeeded();
-	virtual __int64 __vcrt_uninitialize10();
+	virtual __int64 __vcrt_uninitialize9();
 	virtual void stopRiding(bool param_1, bool param_2, bool param_3);
 	virtual void startSwimming();
 	virtual void stopSwimming();
@@ -230,74 +231,67 @@ public:
 	virtual class AnimationComponent* getAnimationComponent();
 	virtual void openContainerComponent(class Player* param_1);
 	virtual void swing();
-	virtual void useItem(class ItemStack* param_1, class ItemUseMethod* param_2, bool param_3);
-	virtual bool getReturnPolicy9();
-	virtual int UndefinedFunc_213();
-	virtual void getDebugText(__int64 param_1);
-	virtual float getMapDecorationRotation();
+	virtual void useItem(class ItemStackBase* param_1, class ItemUseMethod* param_2, bool param_3);
+	virtual __int64 getReturnPolicy9();
+	virtual int UndefinedFunc_216();
+	virtual void getDebugText(std::vector<std::string, std::string>* param_1);
+	virtual float calcGroundFriction(class Mob* param_1, class BlockPos* param_2);
 	virtual float getRiderYRotation(class Actor* param_1);
-	virtual float UndefinedFunc_217();
-	virtual bool getReturnPolicy10();
-	virtual bool getReturnPolicy11();
-	virtual bool getReturnPolicy12();
+	virtual float getYHeadRot();
+	virtual __int64 getReturnPolicy10();
+	virtual __int64 getReturnPolicy11();
+	virtual __int64 getReturnPolicy12();
 	virtual bool add(class ItemStack* param_1);
 	virtual bool drop(class ItemStack* param_1, bool param_2);
 	virtual bool getInteraction(class Player* param_1, class ActorInteraction* param_2, struct Vec3* param_3);
-	virtual __int64 __vcrt_uninitialize11();
-	virtual void _guard_check_icall10();
+	virtual __int64 __vcrt_uninitialize10();
+	virtual __int64 _guard_check_icall9();
 	virtual void setSize(float param_1, float param_2);
 	virtual int getLifeSpan();
 	virtual void onOrphan();
 	virtual void wobble();
 	virtual bool wasHurt();
 	virtual void startSpinAttack();
-	virtual void _guard_check_icall11();
+	virtual __int64 _guard_check_icall10();
 	virtual void setDamageNearbyMobs(bool param_1);
-	virtual void _guard_check_icall12();
+	virtual __int64 _guard_check_icall11();
 	virtual void reloadLootTable(class EquipmentTableDefinition* param_1);
 	virtual void reloadLootTable();
-	virtual float stbir__support_zero2(class BlockPos* param_1);
+	virtual class LootTable* getLootTable();
+	virtual int UndefinedFunc_241();
+	virtual __int64 stbir__support_zero1();
 	virtual void kill();
-	virtual void UndefinedFunc_239(void* param_1);
+	virtual void die(class ActorDamageSource* param_1);
 	virtual bool shouldTick();
-	virtual __int64* createMovementProxy();
+	virtual class IActorMovementProxy* createMovementProxy();
+	virtual class IActorMovementProxy* getMovementProxy();
 	virtual float getNextStep(float param_1);
 	virtual void updateEntitySpecificMolangVariables(class RenderParams* param_1);
 	virtual bool shouldTryMakeStepSound();
-	virtual __int64 __vcrt_uninitialize12();
+	virtual __int64 __vcrt_uninitialize11();
 	virtual void outOfWorld();
 	virtual bool _hurt(class ActorDamageSource* param_1, int param_2, bool param_3, bool param_4);
 	virtual void markHurt();
+	virtual class AnimationComponent* _getAnimationComponent(class AnimationComponent* param_1, class AnimationComponentGroup* param_2);
 	virtual void readAdditionalSaveData(class CompoundTag* param_1, class DataLoadHelper* param_2);
 	virtual void addAdditionalSaveData(class CompoundTag* param_1);
 	virtual void _playStepSound(class BlockPos* param_1, class Block* param_2);
 	virtual void _playFlySound(class BlockPos* param_1, class Block* param_2);
-	virtual bool getReturnPolicy13();
+	virtual __int64 getReturnPolicy13();
 	virtual void checkInsideBlocks(float param_1);
 	virtual void pushOutOfBlocks(struct Vec3* param_1);
 	virtual bool updateWaterState();
 	virtual void doWaterSplashEffect();
 	virtual void spawnTrailBubbles();
 	virtual void updateInsideBlock();
-	virtual class LootTable* getLootTable();
-	virtual int UndefinedFunc_261();
 	virtual void _removeRider(class ActorUniqueID* param_1, bool param_2, bool param_3, bool param_4);
 	virtual void _onSizeUpdated();
-	virtual void _guard_check_icall13();
+	virtual __int64 _guard_check_icall12();
 	virtual void knockback(class Actor* param_1, int param_2, float param_3, float param_4, float param_5, float param_6, float param_7);
 
 	inline class MultiPlayerLevel* getMultiPlayerLevel() {
 		if (this != nullptr) {
-			return *reinterpret_cast<class MultiPlayerLevel**>(reinterpret_cast<__int64>(this) + 0x358);
-		}
-		else {
-			return nullptr;
-		}
-	}
-
-	inline class GameMode* getGameMode() {
-		if (this != nullptr) {
-			return *reinterpret_cast<class GameMode**>(reinterpret_cast<__int64>(this) + 0x5C8); // maybe : 0x4F8
+			return *reinterpret_cast<class MultiPlayerLevel**>(reinterpret_cast<__int64>(this) + 0x378);
 		}
 		else {
 			return nullptr;
