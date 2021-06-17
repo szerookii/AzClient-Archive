@@ -3,7 +3,7 @@
 void Killaura::onGmTick() {
 	LocalPlayer* player = gData.getClientInstance()->LocalPlayer();
 
-	if (player != nullptr) {
+	if (player != nullptr && ++this->tick == 10) {
 		MultiPlayerLevel* level = gData.getClientInstance()->LocalPlayer()->getMultiPlayerLevel();
 
 		if (level != nullptr) {
@@ -15,12 +15,15 @@ void Killaura::onGmTick() {
 					Actor* currEnt = level->get(i);
 					float distance = currEnt->getPos()->distance(myPos);
 
-					if (currEnt != nullptr && currEnt != player && distance <= 3.3f) {
+					if (currEnt != nullptr && currEnt != player && distance <= 5.f) {
+						player->lookAt(currEnt, 100, 100);
 						gData.getGameMode()->attack(currEnt);
 						player->swing();
 					}
 				}
 			}
 		}
+
+		this->tick = 0;
 	}
 }

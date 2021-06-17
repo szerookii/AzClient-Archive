@@ -489,8 +489,8 @@ public:
 	virtual __int64 renderEditorGui(__int64&, bool);
 
 
-	virtual C_GuiData* getGuiData(void);
-	virtual C_GuiData* getGuiData(void) const;
+	virtual C_GuiData* getGuiData1(void);
+	virtual C_GuiData* getGuiData2(void) const;
 
 
 	virtual __int64 getGuidedFlowManager(void);
@@ -715,7 +715,6 @@ public:
 	virtual __int64 onLevelExit(void);
 	virtual __int64 updateScreens(void);
 
-
 	class LocalPlayer* LocalPlayer() {
 		if (this != nullptr) {
 			return *reinterpret_cast<class LocalPlayer**>(reinterpret_cast<__int64>(this) + 0x138);
@@ -723,6 +722,10 @@ public:
 		else {
 			return nullptr;
 		}
+	}
+
+	class C_GuiData* getGuiData() {
+		return *reinterpret_cast<class C_GuiData**>((uintptr_t)(this) + 0x4D8);
 	}
 
 	class MinecraftGame* MinecraftGame() {

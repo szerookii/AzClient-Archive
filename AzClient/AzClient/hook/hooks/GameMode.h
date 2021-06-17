@@ -10,28 +10,28 @@ public:
 	void install();
 };
 
-typedef void(__stdcall* GmTick)(GameMode* GM);
+typedef void(__stdcall* GmTick)(GameMode*);
 GmTick _GmTick;
 
-void GmTick_callback(GameMode* GM) {
+void GmTick_callback(GameMode* _this) {
 	LocalPlayer* player = gData.getClientInstance()->LocalPlayer();
 
-	if (GM != nullptr && player != nullptr) {
-		if (player == GM->Player) {
-			gData.setGameMode(GM);
+	if (_this != nullptr && player != nullptr) {
+		if (player == _this->Player) {
+			gData.setGameMode(_this);
 
-			for (auto Module : moduleMgr.modules) {
-				if (Module->isEnabled)
-					Module->onGmTick();
+			for (auto module : moduleMgr.modules) {
+				if (module->isEnabled)
+					module->onGmTick();
 			}
 		}
 	}
 
-	_GmTick(GM);
+	_GmTick(_this);
 }
 
 void GameModeHook::install() {
-	uintptr_t sigAddr = Utils::FindSig("48 8D 05 ? ? ? ? 48 8B D9 48 89 01 8B FA 48 8B 89 ? ? ? ? 48 85 C9 74 ? 48 8B 01 BA ? ? ? ? FF 10 48 8B 8B");
+	uintptr_t sigAddr = Utils::FindSig(xorstr_("48 8D 05 ? ? ? ? 48 8B D9 48 89 01 8B FA 48 8B 89 ? ? ? ? 48 85 C9 74 ? 48 8B 01 BA ? ? ? ? FF 10 48 8B 8B"));
 	
 	if (!sigAddr) return;
 	int offset = *reinterpret_cast<int*>(sigAddr + 3);

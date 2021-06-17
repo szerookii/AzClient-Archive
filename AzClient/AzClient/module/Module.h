@@ -2,6 +2,7 @@
 
 #include "../utils/Utils.h"
 #include "../sdk/GameMode.h"
+#include "../data/GameData.h"
 
 class Module {
 public:

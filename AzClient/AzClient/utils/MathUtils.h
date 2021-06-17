@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <math.h>
+#include <cstdlib>
 
 struct Vec2 {
 	union {

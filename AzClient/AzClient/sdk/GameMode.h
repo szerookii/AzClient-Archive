@@ -8,18 +8,18 @@ public:
 	LocalPlayer* Player; //0x0008
 
 	virtual void* deconstructor(void* param_1);
-	virtual bool startDestroyBlock(class BlockPos* param_1, unsigned char param_2, bool* param_3);
-	virtual bool destroyBlock(class BlockPos* param_1, unsigned char param_2);
-	virtual bool continueDestroyBlock(class BlockPos* param_1, unsigned char param_2, struct Vec3* param_3, bool* param_4);
-	virtual void stopDestroyBlock(class BlockPos* param_1);
-	virtual void startBuildBlock(class BlockPos* param_1, unsigned char param_2);
-	virtual bool buildBlock(class BlockPos* param_1, unsigned char param_2);
+	virtual bool startDestroyBlock(class Vec3_i* param_1, unsigned char param_2, bool* param_3);
+	virtual bool destroyBlock(class Vec3_i* param_1, unsigned char param_2);
+	virtual bool continueDestroyBlock(class Vec3_i* param_1, unsigned char param_2, struct Vec3* param_3, bool* param_4);
+	virtual void stopDestroyBlock(class Vec3_i* param_1);
+	virtual void startBuildBlock(class Vec3_i* param_1, unsigned char param_2);
+	virtual bool buildBlock(class Vec3_i* param_1, unsigned char param_2);
 	virtual void continueBuildBlock(class BlockPos* param_1, unsigned char param_2);
 	virtual void stopBuildBlock();
 	virtual void tick();
 	virtual float getPickRange(class InputMode* param_1, bool param_2);
 	virtual bool useItem(class ItemStack* param_1);
-	virtual bool useItemOn(class ItemStack* param_1, class BlockPos* param_2, unsigned char param_3, struct Vec3* param_4, class Block* param_5);
+	virtual bool useItemOn(class ItemStack* param_1, class Vec3_i* param_2, unsigned char param_3, struct Vec3* param_4, class Block* param_5);
 	virtual bool interact(class Actor* param_1, struct Vec3* param_2);
 	virtual bool attack(class Actor* param_1);
 	virtual void releaseUsingItem();

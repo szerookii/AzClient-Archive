@@ -19,5 +19,5 @@ void tick_callback(ClientInstance* _this, void* a1) {
 }
 
 void ClientInstanceHook::install() {
-	this->hookSig("ClientInstance::tick", "48 89 5C 24 ?? 48 89 74 24 ?? 57 48 83 EC ?? 48 8B F9 48 8B 01", &tick_callback, reinterpret_cast<LPVOID*>(&_ClientInstance_tick));
+	this->hookSig("ClientInstance::tick", xorstr_("48 89 5C 24 ?? 48 89 74 24 ?? 57 48 83 EC ?? 48 8B F9 48 8B 01"), &tick_callback, reinterpret_cast<LPVOID*>(&_ClientInstance_tick));
 }

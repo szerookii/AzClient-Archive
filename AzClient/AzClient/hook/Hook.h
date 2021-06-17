@@ -3,8 +3,10 @@
 #include<Windows.h>
 #include <cstdint>
 
-#include "../../include/MinHook.h"
 #include "../utils/Utils.h"
+
+#include "../../include/MinHook.h"
+#include "../../include/xorstr.hpp"
 
 class Hook {
 public:

@@ -10,5 +10,5 @@ public:
 	AirJump() : Module::Module("AirJump", "Movement", "Allows you to jump in the air") {
 		this->isEnabled = false;
 	};
-	void onLoop();
+	void onGmTick();
 };

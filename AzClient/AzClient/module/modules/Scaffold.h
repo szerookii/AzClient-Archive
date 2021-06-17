@@ -4,10 +4,12 @@
 #include "../../data/GameData.h"
 #include "../../utils/Utils.h"
 #include "../../sdk/LocalPlayer.h"
+#include "../../sdk/GameMode.h"
+#include "../../sdk/ItemStack.h"
 
-class Step : public Module {
+class Scaffold : public Module {
 public:
-	Step() : Module::Module("Step", "Movement", "") {
+	Scaffold() : Module::Module("Scaffold", "World", "") {
 		this->isEnabled = false;
 	};
 	void onGmTick();

@@ -1,9 +1,9 @@
 #include "Step.h"
 
-void Step::onLoop() {
+void Step::onGmTick() {
 	LocalPlayer* player = gData.getClientInstance()->LocalPlayer();
 
 	if (player != nullptr) {
-		// todo
+		player->stepHeight = 2.f;
 	}
 }

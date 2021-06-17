@@ -6,12 +6,17 @@
 #include "../../sdk/LocalPlayer.h"
 #include "../../sdk/MultiPlayerLevel.h"
 
-class Killaura : public Module {
+class Reach : public Module {
 public:
-	Killaura() : Module::Module("Killaura", "Combat", "") {
+	Reach() : Module::Module("Reach", "Combat", "") {
 		this->isEnabled = false;
 	};
+	void onEnable();
+	void onDisable();
 	void onGmTick();
 
-	int tick = 0;
+	float reachValue = 3;
+	float originalReach = 0;
+	float* reachPtr = nullptr;
+	unsigned long oldProtect = 0;
 };

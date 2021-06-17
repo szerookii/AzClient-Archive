@@ -10,5 +10,5 @@ public:
 	AutoSprint() : Module::Module("AutoSprint", "Movement", "Automatically sprint forward") {
 		this->isEnabled = false;
 	};
-	void onLoop();
+	void onGmTick();
 };

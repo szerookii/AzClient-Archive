@@ -1,6 +1,6 @@
 #include "AirJump.h"
 
-void AirJump::onLoop() {
+void AirJump::onGmTick() {
 	LocalPlayer* player = gData.getClientInstance()->LocalPlayer();
 
 	if (player != nullptr) {
