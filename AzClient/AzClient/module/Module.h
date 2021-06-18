@@ -19,5 +19,6 @@ public:
 
 	virtual void onRender() {};
 	virtual void onGmTick() {};
+	virtual void onStartDestroyBlock(class Vec3_i* param_1, unsigned char param_2, bool* param_3) {};
 	virtual void onKey(uint64_t key, bool isDown, bool* cancel) {};
 };

@@ -69,10 +69,14 @@ void TabGUI::onKey(uint64_t key, bool isDown, bool* cancel) {
 					Module* currModule = modules.at(currentModule);
 
 					if (currModule != nullptr)
-						if (!currModule->isEnabled)
+						if (!currModule->isEnabled) {
 							currModule->isEnabled = true;
-						else
+							currModule->onEnable();
+						}
+						else {
 							currModule->isEnabled = false;
+							currModule->onDisable();
+						}
 				}
 			}
 

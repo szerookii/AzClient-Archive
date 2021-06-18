@@ -25,6 +25,6 @@ void Reach::onDisable() {
 
 void Reach::onGmTick() {
 	if (reachPtr != 0) {
-		*reachPtr = 5;
+		*reachPtr = 5.5f;
 	}
 }

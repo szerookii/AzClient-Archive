@@ -5,9 +5,9 @@
 #include "../../utils/Utils.h"
 #include "../../sdk/LocalPlayer.h"
 
-class AirJump : public Module {
+class Bhop : public Module {
 public:
-	AirJump() : Module::Module("AirJump", "Movement", "") {
+	Bhop() : Module::Module("Bhop", "Movement", "") {
 		this->isEnabled = false;
 	};
 	void onGmTick();

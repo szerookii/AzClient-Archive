@@ -5,9 +5,9 @@
 #include "../../utils/Utils.h"
 #include "../../sdk/LocalPlayer.h"
 
-class AirJump : public Module {
+class Aimbot : public Module {
 public:
-	AirJump() : Module::Module("AirJump", "Movement", "") {
+	Aimbot() : Module::Module("Aimbot", "Combat", "") {
 		this->isEnabled = false;
 	};
 	void onGmTick();

@@ -290,6 +290,19 @@ public:
 	virtual __int64 _guard_check_icall12();
 	virtual void knockback(class Actor* param_1, int param_2, float param_3, float param_4, float param_5, float param_6, float param_7);
 
+	inline void look(Vec3* target) {
+		auto var4 = target->x - this->getPos()->x;
+		auto var8 = target->z - this->getPos()->z;
+		auto var6 = target->y - this->getPos()->y;
+
+		auto var14 = sqrt(var4 * var4 + var8 * var8);
+		auto var12 = (float)atan2(var8, var4) * 180.f / M_PI - 90.f;
+		auto var13 = (float)(-(atan2(var6, var14) * 180.f / M_PI));
+
+		this->bodyRot.x = var13;
+		this->bodyRot.y = var12;
+	}
+
 	inline class MultiPlayerLevel* getMultiPlayerLevel() {
 		if (this != nullptr) {
 			return *reinterpret_cast<class MultiPlayerLevel**>(reinterpret_cast<__int64>(this) + 0x378);
