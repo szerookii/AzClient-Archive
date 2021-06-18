@@ -15,12 +15,16 @@ void Killaura::onGmTick() {
 					Actor* currEnt = level->get(i);
 					float distance = currEnt->getPos()->distance(myPos);
 
-					if (currEnt != nullptr && currEnt != player && distance <= 5.5f && ++this->tick == 9) {
+					if (currEnt != nullptr && currEnt != player && !currEnt->isInvisible() && !currEnt->isImmobile() && distance <= 5.5f) {
 						player->look(currEnt->getPos());
-						gData.getGameMode()->attack(currEnt);
-						player->swing();
 
-						this->tick = 0;
+						if (++this->tick == 9) {
+							player->look(currEnt->getPos());
+							gData.getGameMode()->attack(currEnt);
+							player->swing();
+
+							this->tick = 0;
+						}
 
 						return;
 					}

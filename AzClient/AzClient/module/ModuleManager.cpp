@@ -20,10 +20,10 @@ void ModuleManager::init() {
 	modules.push_back(new AirJump());
 	modules.push_back(new Arraylist());
 	modules.push_back(new AutoSprint());
-	modules.push_back(new Bhop());
+	//modules.push_back(new Bhop());
 	modules.push_back(new Instabreak());
 	modules.push_back(new Killaura());
-	modules.push_back(new Reach());
+	//modules.push_back(new Reach());
 	modules.push_back(new Scaffold());
 	modules.push_back(new Step());
 	modules.push_back(new TabGUI());

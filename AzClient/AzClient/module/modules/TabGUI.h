@@ -8,7 +8,7 @@
 
 class TabGUI : public Module {
 public:
-	TabGUI() : Module::Module("TabGUI", "Visuals", "Manage Modules via Arrow Keys", VK_TAB) {
+	TabGUI() : Module::Module("TabGUI", "Visuals", "", VK_TAB) {
 		this->isEnabled = true;
 	};
 	void onRender();

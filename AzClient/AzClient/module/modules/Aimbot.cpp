@@ -15,7 +15,7 @@ void Aimbot::onGmTick() {
 					Actor* currEnt = level->get(i);
 					float distance = currEnt->getPos()->distance(myPos);
 
-					if (currEnt != nullptr && currEnt != player && distance <= 5.5f) {
+					if (currEnt != nullptr && currEnt != player && !currEnt->isInvisible() && !currEnt->isImmobile() && distance <= 5.5f) {
 						player->look(currEnt->getPos());
 						return;
 					}

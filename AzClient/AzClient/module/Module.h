@@ -3,6 +3,7 @@
 #include "../utils/Utils.h"
 #include "../sdk/GameMode.h"
 #include "../data/GameData.h"
+#include "../../include/xorstr.hpp"
 
 class Module {
 public:
