@@ -3,6 +3,7 @@
 #include <bitset>
 
 #include "../utils/Utils.h"
+#include "TextHolder.h"
 
 class LocalPlayer : public Actor {
 public:
