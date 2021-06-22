@@ -3,6 +3,7 @@
 #include <bitset>
 
 #include "../utils/Utils.h"
+#include "TextHolder.h"
 
 class LocalPlayer : public Actor {
 public:
@@ -183,7 +184,7 @@ public:
 	virtual void onMovePlayerPacketNormal(Vec3*, Vec2*, float);
 
 	inline void printToChat(std::string message) {
-		TextHolder t(message);
-		this->displayTextObjectMessage(&t);
+		TextHolder text = TextHolder(message);
+		this->displayTextObjectMessage(&text);
 	}
 };

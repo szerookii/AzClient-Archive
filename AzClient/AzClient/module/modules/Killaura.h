@@ -8,7 +8,7 @@
 
 class Killaura : public Module {
 public:
-	Killaura() : Module::Module("Killaura", "Combat", "") {
+	Killaura() : Module::Module("Killaura", "Combat", "", 0x46) {
 		this->isEnabled = false;
 	};
 	void onGmTick();
