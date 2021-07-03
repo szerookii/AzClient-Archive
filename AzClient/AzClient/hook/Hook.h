@@ -4,6 +4,7 @@
 #include <cstdint>
 
 #include "../utils/Utils.h"
+#include "../module/ModuleManager.h"
 
 #include "../../include/MinHook.h"
 #include "../../include/xorstr.hpp"

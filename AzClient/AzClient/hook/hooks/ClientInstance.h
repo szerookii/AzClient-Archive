@@ -9,11 +9,24 @@ public:
 	void install();
 };
 
+static bool started = false;
+
 typedef void(__stdcall* ClientInstance_tick)(ClientInstance* _this, void* a1);
 ClientInstance_tick _ClientInstance_tick;
 
 void tick_callback(ClientInstance* _this, void* a1) {
 	gData.setClientInstance(_this);
+
+	auto player = _this->LocalPlayer();
+
+	if (player != nullptr && !started) {
+		auto vtable = Utils::getVtable(player);
+		auto funcPtr = vtable[67];
+		
+		Utils::DebugLogOutput(Utils::ptrToStr((uintptr_t)funcPtr));
+		
+		started = true;
+	}
 
 	_ClientInstance_tick(_this, a1);
 }

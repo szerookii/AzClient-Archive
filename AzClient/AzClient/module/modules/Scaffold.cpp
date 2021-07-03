@@ -14,7 +14,7 @@ void Scaffold::onGmTick() {
 	
 	int side = 0;
 
-	float playerYaw = player->bodyRot.y;
+	float playerYaw = player->bodyRot()->y;
 
 	if (playerYaw < -45 && playerYaw > -135)
 		side = 5;

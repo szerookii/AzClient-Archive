@@ -3,13 +3,11 @@
 #include "../Module.h"
 #include "../../data/GameData.h"
 #include "../../utils/Utils.h"
-#include "../../sdk/GameSettingsInput.h"
 #include "../../sdk/LocalPlayer.h"
 
-class Bhop : public Module {
+class AirSwim : public Module {
 public:
-	Bhop() : Module::Module("Bhop", "Movement", "") {
+	AirSwim() : Module::Module("AirSwim", "Movement", "") {
 		this->isEnabled = false;
 	};
-	void onGmTick();
 };

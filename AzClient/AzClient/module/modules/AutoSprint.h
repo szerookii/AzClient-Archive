@@ -8,7 +8,7 @@
 class AutoSprint : public Module {
 public:
 	AutoSprint() : Module::Module("AutoSprint", "Movement", "") {
-		this->isEnabled = false;
+		this->isEnabled = true;
 	};
 	void onGmTick();
 };

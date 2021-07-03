@@ -249,6 +249,10 @@ public:
 		return (uintptr_t)GetModuleHandleW(L"Minecraft.Windows.exe");
 	}
 
+	static inline void** getVtable(void* obj) {
+		return *((void***)obj);
+	}
+
 	static inline unsigned int getCrcHash(const char* str, int seed = 0) {
 		static unsigned int crc32_lut[256] = { 0 };
 		if (!crc32_lut[1]) {
