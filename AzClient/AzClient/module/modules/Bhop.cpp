@@ -9,7 +9,7 @@ void Bhop::onGmTick() {
 	if (player == nullptr || input == nullptr || !gData.getClientInstance()->MinecraftGame()->canUseKeys())
 		return;
 
-	float calcYaw = player->bodyRot()->y;
+	float calcYaw = player->bodyRot.y;
 
 	bool pressedForward = Utils::isKeyDown(*input->forwardKey);
 	bool pressedBackKey = Utils::isKeyDown(*input->backKey);

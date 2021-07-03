@@ -7,7 +7,7 @@
 class Actor {
 public:
 	char pad_0008[312]; //0x0008
-	Vec2 bodyRotf; //0x0140
+	Vec2 bodyRot; //0x0140
 	char pad_0148[152]; //0x0148
 	bool onGround; //0x01E0
 	char pad_01E1[95]; //0x01E1
@@ -27,15 +27,6 @@ public:
 		return reinterpret_cast<Vec3*>((uintptr_t)(this) + offset);
 	}
 
-	inline Vec2* bodyRot() {
-		static unsigned int offset = NULL;
-
-		if (offset == NULL)
-			offset = *reinterpret_cast<int*>(Utils::FindSig("F2 0F 11 87 ? ? ? ? F3 0F 10 8F ? ? ? ? F3") + 4);
-
-		return reinterpret_cast<Vec2*>((uintptr_t)(this) + offset);
-	}
-
 	inline void look(Vec3* target) {
 		auto var4 = target->x - this->getPos()->x;
 		auto var8 = target->z - this->getPos()->z;
@@ -45,8 +36,8 @@ public:
 		auto var12 = (float)atan2(var8, var4) * 180.f / M_PI - 90.f;
 		auto var13 = (float)(-(atan2(var6, var14) * 180.f / M_PI));
 
-		this->bodyRot()->x = var13;
-		this->bodyRot()->y = var12;
+		this->bodyRot.x = var13;
+		this->bodyRot.y = var12;
 	}
 
 	inline class MultiPlayerLevel* getMultiPlayerLevel() {
