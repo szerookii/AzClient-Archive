@@ -12,7 +12,7 @@ enum Editions {
 	Windows,
 	Dedicated,
 	TVOS,
-	PlayStation
+	PlayStation,
         Nintendo, 
         Xbox,
         WindowsPhone
