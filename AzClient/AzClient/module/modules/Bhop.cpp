@@ -44,7 +44,7 @@ void Bhop::onGmTick() {
 		}
 	}
 
-	if (pressedForward | pressedBackKey | pressedLeftKey | pressedRightKey) {
+	if (pressedForward || pressedBackKey || pressedLeftKey || pressedRightKey) {
 		auto velocity = player->velocity();
 		player->lerpMotion(new Vec3(cos((calcYaw) * (PI / 180.0f)) * speed, player->onGround ? 0.42 : velocity->y, sin((calcYaw) * (PI / 180.0f)) * speed));
 	}
