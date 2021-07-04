@@ -11,8 +11,11 @@ enum Editions {
 	Windows10,
 	Windows,
 	Dedicated,
-	Orbis,
-	NX
+	TVOS,
+	PlayStation
+        Nintendo, 
+        Xbox,
+        WindowsPhone
 };
 
 class AppPlatform {
