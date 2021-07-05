@@ -179,6 +179,7 @@
     <ClCompile Include="AzClient\hook\HookManager.cpp" />
     <ClCompile Include="AzClient\module\modules\Aimbot.cpp" />
     <ClCompile Include="AzClient\module\modules\AirSwim.cpp" />
+    <ClCompile Include="AzClient\module\modules\AntiImmobile.cpp" />
     <ClCompile Include="AzClient\module\modules\Arraylist.cpp" />
     <ClCompile Include="AzClient\module\Module.cpp" />
     <ClCompile Include="AzClient\module\ModuleManager.cpp" />
@@ -186,7 +187,9 @@
     <ClCompile Include="AzClient\module\modules\AutoSprint.cpp" />
     <ClCompile Include="AzClient\module\modules\Bhop.cpp" />
     <ClCompile Include="AzClient\module\modules\EditionFaker.cpp" />
+    <ClCompile Include="AzClient\module\modules\ExtendedBlockReach.cpp" />
     <ClCompile Include="AzClient\module\modules\FastLadder.cpp" />
+    <ClCompile Include="AzClient\module\modules\HighJump.cpp" />
     <ClCompile Include="AzClient\module\modules\Instabreak.cpp" />
     <ClCompile Include="AzClient\module\modules\NoKB.cpp" />
     <ClCompile Include="AzClient\module\modules\Reach.cpp" />
@@ -216,10 +219,13 @@
     <ClInclude Include="AzClient\module\modules\Aimbot.h" />
     <ClInclude Include="AzClient\module\modules\AirJump.h" />
     <ClInclude Include="AzClient\module\modules\AirSwim.h" />
+    <ClInclude Include="AzClient\module\modules\AntiImmobile.h" />
     <ClInclude Include="AzClient\module\modules\Arraylist.h" />
     <ClInclude Include="AzClient\module\modules\AutoSprint.h" />
     <ClInclude Include="AzClient\module\modules\EditionFaker.h" />
+    <ClInclude Include="AzClient\module\modules\ExtendedBlockReach.h" />
     <ClInclude Include="AzClient\module\modules\FastLadder.h" />
+    <ClInclude Include="AzClient\module\modules\HighJump.h" />
     <ClInclude Include="AzClient\module\modules\Instabreak.h" />
     <ClInclude Include="AzClient\module\modules\Killaura.h" />
     <ClInclude Include="AzClient\module\modules\NoKB.h" />

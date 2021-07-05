@@ -21,7 +21,7 @@ void tick_callback(ClientInstance* _this, void* a1) {
 
 	if (player != nullptr && !started) {
 		auto vtable = Utils::getVtable(player);
-		auto funcPtr = vtable[67];
+		auto funcPtr = vtable[132];
 		
 		Utils::DebugLogOutput(Utils::ptrToStr((uintptr_t)funcPtr));
 		

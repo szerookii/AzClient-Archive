@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cfloat>
+
 #include "../Hook.h"
 #include "../../data/GameData.h"
 #include "../../module/ModuleManager.h"
@@ -10,10 +12,10 @@ public:
 	void install();
 };
 
-typedef void(__stdcall* GmTick)(GameMode*);
-GmTick _GmTick;
+typedef void(__stdcall* GameMode_tick)(GameMode*);
+GameMode_tick _GameMode_tick;
 
-void GmTick_callback(GameMode* _this) {
+void hGameMode_tick(GameMode* _this) {
 	LocalPlayer* player = gData.getClientInstance()->LocalPlayer();
 
 	if (_this != nullptr && player != nullptr) {
@@ -27,13 +29,13 @@ void GmTick_callback(GameMode* _this) {
 		}
 	}
 
-	_GmTick(_this);
+	_GameMode_tick(_this);
 }
 
-typedef void(__stdcall* GmStartDestroyBlock)(GameMode*, class Vec3_i*, unsigned char, bool*);
-GmStartDestroyBlock _GmStartDestroyBlock;
+typedef void(__stdcall* GameMode_destroyBlock)(GameMode*, class Vec3_i*, unsigned char, bool*);
+GameMode_destroyBlock _GameMode_destroyBlock;
 
-void GmStartDestroyBlock_callback(GameMode* _this, class Vec3_i* param_1, unsigned char param_2, bool* param_3) {
+void hGameMode_destroyBlock(GameMode* _this, class Vec3_i* param_1, unsigned char param_2, bool* param_3) {
 	LocalPlayer* player = gData.getClientInstance()->LocalPlayer();
 
 	if (_this != nullptr && player != nullptr) {
@@ -45,7 +47,20 @@ void GmStartDestroyBlock_callback(GameMode* _this, class Vec3_i* param_1, unsign
 		}
 	}
 
-	_GmStartDestroyBlock(_this, param_1, param_2, param_3);
+	_GameMode_destroyBlock(_this, param_1, param_2, param_3);
+}
+
+typedef float(__stdcall* GameMode_getPickRange)(GameMode*, __int64*, bool);
+GameMode_getPickRange _GameMode_getPickRange;
+
+float hGameMode_getPickRange(GameMode* _this, __int64* idk1, bool idk2) {
+	auto reach = moduleMgr.getModuleByName("ExtendedBlockReach");
+
+	if (reach != nullptr && reach->isEnabled) {
+		return 20.f;
+	}
+
+	return _GameMode_getPickRange(_this, idk1, idk2);
 }
 
 void GameModeHook::install() {
@@ -55,6 +70,7 @@ void GameModeHook::install() {
 	int offset = *reinterpret_cast<int*>(sigAddr + 3);
 	uintptr_t** vtable = reinterpret_cast<uintptr_t**>(sigAddr + offset + 7);
 
-	this->hookAddr("GameMode::tick", (void*)vtable[10], &GmTick_callback, reinterpret_cast<LPVOID*>(&_GmTick));
-	this->hookAddr("GameMode::startDestroyBlock", (void*)vtable[1], &GmStartDestroyBlock_callback, reinterpret_cast<LPVOID*>(&_GmStartDestroyBlock));
+	this->hookAddr("GameMode::startDestroyBlock", (void*)vtable[1], &hGameMode_destroyBlock, (LPVOID*)&_GameMode_destroyBlock);
+	this->hookAddr("GameMode::tick", (void*)vtable[10], &hGameMode_tick, (LPVOID*)&_GameMode_tick);
+	this->hookAddr("GameMode::getPickRange", (void*)vtable[11], &hGameMode_getPickRange, (LPVOID*)&_GameMode_getPickRange);
 }

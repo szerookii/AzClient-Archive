@@ -1,13 +1,16 @@
 #include "ModuleManager.h"
 
 #include "modules/Aimbot.h"
+#include "modules/AntiImmobile.h"
 #include "modules/AirJump.h"
 #include "modules/AirSwim.h"
 #include "modules/Arraylist.h"
 #include "modules/AutoSprint.h"
 #include "modules/Bhop.h"
 #include "modules/EditionFaker.h"
+#include "modules/ExtendedBlockReach.h"
 #include "modules/FastLadder.h"
+#include "modules/HighJump.h"
 #include "modules/Instabreak.h"
 #include "modules/Killaura.h"
 #include "modules/NoKB.h"
@@ -21,13 +24,16 @@ ModuleManager moduleMgr;
 
 void ModuleManager::init() {
 	modules.push_back(new Aimbot());
+	modules.push_back(new AntiImmobile());
 	modules.push_back(new AirJump());
 	modules.push_back(new AirSwim());
 	modules.push_back(new Arraylist());
 	modules.push_back(new AutoSprint());
 	modules.push_back(new Bhop());
 	modules.push_back(new EditionFaker());
+	//modules.push_back(new ExtendedBlockReach());
 	modules.push_back(new FastLadder());
+	modules.push_back(new HighJump());
 	modules.push_back(new Instabreak());
 	modules.push_back(new Killaura());
 	modules.push_back(new NoKB());

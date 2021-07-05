@@ -13,7 +13,7 @@ public:
 typedef int(__stdcall* AppPlatform_getGameEdition)(__int64 _this);
 AppPlatform_getGameEdition _AppPlatform_getGameEdition;
 
-int AppPlatform_getGameEdition_callback(__int64 _this) {
+int hAppPlatform_getGameEdition(__int64 _this) {
 	auto edition = moduleMgr.getModuleByName("EditionFaker");
 
 	if (edition != nullptr && edition->isEnabled) {
@@ -24,5 +24,5 @@ int AppPlatform_getGameEdition_callback(__int64 _this) {
 }
 
 void OtherHook::install() {
-	this->hookSig("AppPlatform::getGameEdition", xorstr_("8B 91 ?? ?? ?? ?? 85 D2 74 1C 83 EA 01"), &AppPlatform_getGameEdition_callback, (LPVOID*)&_AppPlatform_getGameEdition);
+	this->hookSig("AppPlatform::getGameEdition", xorstr_("8B 91 ?? ?? ?? ?? 85 D2 74 1C 83 EA 01"), &hAppPlatform_getGameEdition, (LPVOID*)&_AppPlatform_getGameEdition);
 }

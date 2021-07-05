@@ -13,9 +13,9 @@ enum Editions {
 	Dedicated,
 	TVOS,
 	PlayStation,
-        Nintendo, 
-        Xbox,
-        WindowsPhone
+	Nintendo, 
+	Xbox,
+	WindowsPhone
 };
 
 class AppPlatform {
