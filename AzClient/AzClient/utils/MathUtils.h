@@ -261,6 +261,11 @@ struct Vec3_i {
 	}
 };
 
+struct AABB {
+	Vec3 lower;
+	Vec3 upper;
+};
+
 struct Vec4 {
 	union {
 		struct {

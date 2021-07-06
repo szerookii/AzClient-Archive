@@ -18,7 +18,7 @@ public:
 	Vec3 velocityf; //0x0518
 	char pad_0524[888]; //0x0524
 
-	inline Vec3* velocity() {
+	inline class Vec3* velocity() {
 		static unsigned int offset = NULL;
 
 		if (offset == NULL)
@@ -26,6 +26,16 @@ public:
 
 		return reinterpret_cast<Vec3*>((uintptr_t)(this) + offset);
 	}
+
+	class AABB* getAABB() {
+		static unsigned int offset = NULL;
+
+		if (offset == NULL)
+			offset = *reinterpret_cast<int*>(Utils::FindSig("F3 0F 11 81 ? ? ? ? F3 0F 10 42 ? F3 0F 58 81 ? ? ? ? F3 0F 11 81 ? ? ? ? F3 0F 10 42") + 4);
+
+		return reinterpret_cast<AABB*>((uintptr_t)(this) + offset);
+	}
+
 
 	inline void look(Vec3* target) {
 		auto var4 = target->x - this->getPos()->x;

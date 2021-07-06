@@ -193,6 +193,7 @@
     <ClCompile Include="AzClient\module\modules\Instabreak.cpp" />
     <ClCompile Include="AzClient\module\modules\NoKB.cpp" />
     <ClCompile Include="AzClient\module\modules\NoPacket.cpp" />
+    <ClCompile Include="AzClient\module\modules\Phase.cpp" />
     <ClCompile Include="AzClient\module\modules\Reach.cpp" />
     <ClCompile Include="AzClient\module\modules\Scaffold.cpp" />
     <ClCompile Include="AzClient\module\modules\Killaura.cpp" />
@@ -231,6 +232,7 @@
     <ClInclude Include="AzClient\module\modules\Killaura.h" />
     <ClInclude Include="AzClient\module\modules\NoKB.h" />
     <ClInclude Include="AzClient\module\modules\NoPacket.h" />
+    <ClInclude Include="AzClient\module\modules\Phase.h" />
     <ClInclude Include="AzClient\module\modules\Reach.h" />
     <ClInclude Include="AzClient\module\modules\Scaffold.h" />
     <ClInclude Include="AzClient\module\modules\Step.h" />
