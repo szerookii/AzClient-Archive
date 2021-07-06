@@ -14,6 +14,7 @@
 #include "modules/Instabreak.h"
 #include "modules/Killaura.h"
 #include "modules/NoKB.h"
+#include "modules/NoPacket.h"
 #include "modules/Reach.h"
 #include "modules/Scaffold.h"
 #include "modules/Step.h"
@@ -37,6 +38,7 @@ void ModuleManager::init() {
 	modules.push_back(new Instabreak());
 	modules.push_back(new Killaura());
 	modules.push_back(new NoKB());
+	modules.push_back(new NoPacket());
 	//modules.push_back(new Reach());
 	modules.push_back(new Scaffold());
 	modules.push_back(new Step());

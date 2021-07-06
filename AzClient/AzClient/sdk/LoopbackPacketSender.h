@@ -2,7 +2,7 @@
 
 class LoopbackPacketSender {
 public:
-	virtual void* UndefinedFunc_0(void* param_1);
+	virtual void* constructor(void* param_1);
 	virtual void send(class Packet* param_1);
 	virtual void sendToServer(class Packet* param_1);
 	virtual void sendToClient(class NetworkIdentifier* param_1, class Packet* param_2, unsigned char param_3);

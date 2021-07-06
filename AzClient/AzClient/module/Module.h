@@ -2,6 +2,7 @@
 
 #include "../utils/Utils.h"
 #include "../sdk/GameMode.h"
+#include "../sdk/Packet.h"
 #include "../data/GameData.h"
 #include "../../include/xorstr.hpp"
 
@@ -22,4 +23,5 @@ public:
 	virtual void onGmTick() {};
 	virtual void onStartDestroyBlock(class Vec3_i* param_1, unsigned char param_2, bool* param_3) {};
 	virtual void onKey(uint64_t key, bool isDown, bool* cancel) {};
+	virtual void onPacketSend(Packet* packet, bool* cancel) {};
 };

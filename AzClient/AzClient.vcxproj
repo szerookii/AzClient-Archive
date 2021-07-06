@@ -192,6 +192,7 @@
     <ClCompile Include="AzClient\module\modules\HighJump.cpp" />
     <ClCompile Include="AzClient\module\modules\Instabreak.cpp" />
     <ClCompile Include="AzClient\module\modules\NoKB.cpp" />
+    <ClCompile Include="AzClient\module\modules\NoPacket.cpp" />
     <ClCompile Include="AzClient\module\modules\Reach.cpp" />
     <ClCompile Include="AzClient\module\modules\Scaffold.cpp" />
     <ClCompile Include="AzClient\module\modules\Killaura.cpp" />
@@ -229,6 +230,7 @@
     <ClInclude Include="AzClient\module\modules\Instabreak.h" />
     <ClInclude Include="AzClient\module\modules\Killaura.h" />
     <ClInclude Include="AzClient\module\modules\NoKB.h" />
+    <ClInclude Include="AzClient\module\modules\NoPacket.h" />
     <ClInclude Include="AzClient\module\modules\Reach.h" />
     <ClInclude Include="AzClient\module\modules\Scaffold.h" />
     <ClInclude Include="AzClient\module\modules\Step.h" />
@@ -248,6 +250,7 @@
     <ClInclude Include="AzClient\sdk\LoopbackPacketSender.h" />
     <ClInclude Include="AzClient\sdk\MinecraftUIRenderContext.h" />
     <ClInclude Include="AzClient\sdk\MultiPlayerLevel.h" />
+    <ClInclude Include="AzClient\sdk\Packet.h" />
     <ClInclude Include="AzClient\sdk\RakNetInstance.h" />
     <ClInclude Include="AzClient\sdk\TextHolder.h" />
     <ClInclude Include="AzClient\utils\MathUtils.h" />
