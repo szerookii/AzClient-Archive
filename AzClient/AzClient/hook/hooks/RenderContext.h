@@ -15,10 +15,10 @@ typedef void(__stdcall* RenderUIContext_render)(__int64 _this, MinecraftUIRender
 RenderUIContext_render _RenderUIContext_render;
 
 void RenderUIContext_render_callback(__int64 _this, MinecraftUIRenderContext* ctx) {
-	ClientInstance* Curr = gData.getClientInstance();
-	MinecraftGame* mcGame = Curr->MinecraftGame();
+	ClientInstance* curr = gData.getClientInstance();
+	MinecraftGame* mcGame = curr->MinecraftGame();
 
-	if (Curr != nullptr && mcGame != nullptr && mcGame->getStrongFont() != nullptr) {
+	if (curr != nullptr && mcGame != nullptr && mcGame->getStrongFont() != nullptr) {
 		RenderUtils::setContext(ctx, mcGame->getStrongFont());
 		
 		for (auto module : moduleMgr.modules) {
