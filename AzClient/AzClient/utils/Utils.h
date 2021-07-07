@@ -20,6 +20,7 @@
 #include <map>
 
 #include "../../include/MinHook.h"
+#include "../../include/xorstr.hpp"
 #include "../sdk/Color.h"
 
 #include "MathUtils.h"

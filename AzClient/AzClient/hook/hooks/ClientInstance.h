@@ -3,6 +3,8 @@
 #include "../Hook.h"
 #include "../../data/GameData.h"
 #include "../../sdk/ClientInstance.h"
+#include "../../sdk/Inventory.h"
+#include "../../sdk/ItemStack.h"
 
 class ClientInstanceHook : public Hook {
 public:

@@ -6,6 +6,11 @@
 
 class LocalPlayer : public Actor {
 public:
+	inline void printToChat(std::string message) {
+		TextHolder text = TextHolder(message);
+		this->displayTextObjectMessage(&text);
+	}
+
 	virtual void resolveDeathLoot(int param_1, class ActorDamageSource* param_2);
 	virtual __int64 _guard_check_icall11();
 	virtual void setSleeping(bool param_1);
@@ -112,7 +117,7 @@ public:
 	virtual __int64 _guard_check_icall20();
 	virtual int tickWorld(class Tick* param_1);
 	virtual __int64 _guard_check_icall00();
-	virtual _int64* getTickingOffsets();
+	virtual __int64* getTickingOffsets();
 	virtual void moveView();
 	virtual void setName(TextHolder* param_1);
 	virtual void checkMovementStats(class Vec3* param_1);
@@ -187,9 +192,4 @@ public:
 	virtual std::string* asString();
 	virtual class Value* asJsonValue();
 	virtual class Value* resolve(class ResolveData* param_1);
-
-	inline void printToChat(std::string message) {
-		TextHolder text = TextHolder(message);
-		this->displayTextObjectMessage(&text);
-	}
 };

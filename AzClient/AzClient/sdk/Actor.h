@@ -22,7 +22,7 @@ public:
 		static unsigned int offset = NULL;
 
 		if (offset == NULL)
-			offset = *reinterpret_cast<int*>(Utils::FindSig("0F 10 89 ? ? ? ? 0F 57 D2 F3 0F ? ? ? ? ? ? 0F 28 C1 0F") + 3);
+			offset = *reinterpret_cast<int*>(Utils::FindSig(xorstr_("0F 10 89 ? ? ? ? 0F 57 D2 F3 0F ? ? ? ? ? ? 0F 28 C1 0F")) + 3);
 
 		return reinterpret_cast<Vec3*>((uintptr_t)(this) + offset);
 	}
@@ -31,9 +31,19 @@ public:
 		static unsigned int offset = NULL;
 
 		if (offset == NULL)
-			offset = *reinterpret_cast<int*>(Utils::FindSig("F3 0F 11 81 ? ? ? ? F3 0F 10 42 ? F3 0F 58 81 ? ? ? ? F3 0F 11 81 ? ? ? ? F3 0F 10 42") + 4);
+			offset = *reinterpret_cast<int*>(Utils::FindSig(xorstr_("F3 0F 11 81 ? ? ? ? F3 0F 10 42 ? F3 0F 58 81 ? ? ? ? F3 0F 11 81 ? ? ? ? F3 0F 10 42")) + 4);
 
 		return reinterpret_cast<AABB*>((uintptr_t)(this) + offset);
+	}
+
+	class PlayerInventory* getSupplies() {
+		static unsigned int offset = NULL;
+
+		if (offset == NULL) {
+			offset = *reinterpret_cast<int*>(Utils::FindSig(xorstr_("48 8B 8B ? ? ? ? 8B 47 ? 8B")) + 3);
+		}
+
+		return *reinterpret_cast<class PlayerInventory**>((uintptr_t)(this) + offset);
 	}
 
 
